@@ -13,26 +13,23 @@
         }
     ];
 
-const userName = document.getElementById('userName')
-const userPassword = document.getElementById('userPassword')
+const userName = document.getElementById('userName').value
+const userPassword = document.getElementById('userPassword').value
 const form = document.getElementById('form')
 
-form.addEventListener('submit', (e) => {
-    let errorMessage = []
-    if (userName.value ==='' || userName.value === null){
-        errorMessage.push('Please enter valid username or password')
-        alert("Please enter valid username or password")
-    }else if(userName.value === database[0].username && userPassword.value === database[0].password){
-        alert("welcome George")
-    }
-    e.preventDefault()
-})
-
-const validUser =()=>{
-    for(var i=0; i<database.length; i++){
-        if(database[i].username === userName.value && database[i].password === userPassword.value){
-            
+function isUserValid(userName,userPassword){
+    for(var i=0; i < database.length; i++){
+        if(database[i].username === userName &&
+             database[i].password === userPassword) {
+            return true;
         }
     }
-
+    return false;
 };
+
+form.addEventListener('submit', (e) => {
+    if(isUserValid(userName,userPassword)){
+        alert("welcome")
+    }else{alert("wrong username or password")}
+    e.preventDefault()
+})
