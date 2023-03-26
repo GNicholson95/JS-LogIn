@@ -1,4 +1,7 @@
-# JS-LogIn
+# JS-LogIn. 
+
+NOTE: google flags this as a dangerous site but it is just a simple project example.
+
 username:
 George
 Amy
