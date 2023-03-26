@@ -17,15 +17,22 @@ const userName = document.getElementById('userName').value
 const userPassword = document.getElementById('userPassword').value
 const form = document.getElementById('form')
 
-function isUserValid(userName,userPassword){
-    for(var i=0; i < database.length; i++){
-        if(database[i].username === userName &&
-             database[i].password === userPassword) {
-            return true;
-        }
+   
+
+
+function isUserValid() {
+    const userName = document.getElementById('userName').value;
+    const userPassword = document.getElementById('userPassword').value;
+  
+    for (var i = 0; i < database.length; i++) {
+      if (database[i].username === userName && database[i].password === userPassword) {
+        return true;
+      }
     }
     return false;
-};
+  }
+  
+isUserValid(userName,userPassword);
 
 form.addEventListener('submit', (e) => {
     if(isUserValid(userName,userPassword)){
